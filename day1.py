@@ -10,13 +10,13 @@ A = [3, 1, 4, 1, 5] → 0
 
 def solution(A):
   freq = {}
-  # count frequency of each number
+  # count the frequency of each number
   for x in A:
     if x in freq:
       freq[x] += 1
     else:
       freq[x] = 1
-  # find largest number whose freq equal to number
+  # find the largest number whose freq equals to number
   answer = 0
   for x in freq:
     if freq[x] == x:
