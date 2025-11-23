@@ -1,0 +1,38 @@
+"""
+Find the largest integer X such that X appears exactly X times in the array.
+
+Examples: 
+A = [3, 8, 2, 3, 3, 2] → 3 
+A = [7, 1, 2, 8, 2] → 2
+A = [3, 1, 4, 1, 5] → 0
+"""
+
+
+def solution(A):
+  freq = {}
+  # count frequency of each number
+  for x in A:
+    if x in freq:
+      freq[x] += 1
+    else:
+      freq[x] = 1
+  # find largest number whose freq equal to number
+  answer = 0
+  for x in freq:
+    if freq[x] == x:
+      answer = max(answer, x)
+  return answer
+
+
+# Test cases
+print(solution([3, 8, 2, 3, 3, 2]))   # Expected output: 3
+print(solution([7, 1, 2, 8, 2]))      # Expected output: 2
+print(solution([3, 1, 4, 1, 5]))      # Expected output: 0
+print(solution([5, 5, 5, 5, 5]))      # Expected output: 5
+print(solution([]))                   # Expected output: 0 (empty array)
+print(solution([1]))                  # Expected output: 1 (1 appears once)
+print(solution([2, 2, 2]))            # Expected output: 0 (appears 3 times, not 2)
+print(solution([4, 4, 4, 4]))         # Expected output: 4
+print(solution([1, 2, 2, 3, 3, 3]))   # Expected output: 3
+
+  
